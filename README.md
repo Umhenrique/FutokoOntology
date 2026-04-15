@@ -17,7 +17,7 @@ Estão fora do escopo desta ontologia: intervenções clínicas, terapêuticas o
 
 O objetivo desta ontologia é produzir uma representação formal e explícita do processo administrativo de registro da recusa escolar (_Futoko_) tal como estruturado pelo MEXT, com base nos documentos institucionais vigentes.
 
-Operacionalmente, a ontologia deve: (i) formalizar os conceitos, critérios e relações que constituem a classificação administrativa de _Futoko_; (ii) representar o fluxo de registro da ausência escolar, da unidade de ensino até a consolidação nos levantamentos nacionais; e %% (iii) modelar os instrumentos de suporte previstos pelo COCOLOプラン e sua articulação com o processo administrativo de acompanhamento do estudante. %%
+Operacionalmente, a ontologia deve: (i) formalizar os conceitos, critérios e relações que constituem a classificação administrativa de _Futoko_; (ii) representar o fluxo de registro da ausência escolar, da unidade de ensino até a consolidação nos levantamentos nacionais; ~~e  (iii) modelar os instrumentos de suporte previstos pelo COCOLOプラン e sua articulação com o processo administrativo de acompanhamento do estudante.~~ 
 
 ---
 ## 3. Linguagens
@@ -28,7 +28,7 @@ Na camada conceitual será utilizada a linguagem OntoUML, que permite a modelage
 
 Na camada de implementação formal, a ontologia será expressa em Web Ontology Language (OWL 2), viabilizando raciocínio automatizado, integração com outros artefatos semânticos e publicação em conformidade com os padrões da Web Semântica.
 
-As anotações de classes e propriedades serão redigidas em português, com inclusão dos termos japoneses originais em kanji/kana e romaji como metadados, de modo a preservar a fidelidade terminológica à fonte primária. %%Talvez até a data da publicação seja traduzida para inglês %%
+As anotações de classes e propriedades serão redigidas em português, com inclusão dos termos japoneses originais em kanji/kana e romaji como metadados, de modo a preservar a fidelidade terminológica à fonte primária. ~~Talvez até a data da publicação seja traduzida para inglês~~ 
 
 ---
 
@@ -64,9 +64,9 @@ A ontologia é destinada a três perfis de usuários:
 
 **CQ3:** Quem são os agentes administrativos responsáveis pelo registro da ausência em cada etapa do fluxo da escola ao levantamento nacional e quais instrumentos documentais formalizam cada transferência de informação?
 
-%%**CQ4:** Quais instrumentos de suporte foram instituídos pelo COCOLOプラン para estudantes identificados como _Futoko_, e como sua aplicação é registrada administrativamente? %%
+~~**CQ4:** Quais instrumentos de suporte foram instituídos pelo COCOLOプラン para estudantes identificados como _Futoko_, e como sua aplicação é registrada administrativamente?~~ 
 
-%%**CQ5:** De que modo a frequência em estruturas externas à escola regular como os Centros de Apoio Educacional (教育支援センター) e as escolas de diversificação da aprendizagem (学びの多様化学校) é contabilizada e registrada para fins administrativos? %%
+~~CQ5:** De que modo a frequência em estruturas externas à escola regular como os Centros de Apoio Educacional (教育支援センター) e as escolas de diversificação da aprendizagem (学びの多様化学校) é contabilizada e registrada para fins administrativos?~~ 
 
 **CQ6:** Como o processo administrativo de acompanhamento do estudante com _Futoko_ é documentado ao longo do tempo, e quais são os eventos que marcam transições de estado nesse processo?
 
@@ -76,7 +76,7 @@ A ontologia é destinada a três perfis de usuários:
 
 **Findable:** Todas as classes, propriedades e instâncias da ontologia receberão identificadores únicos e persistentes (URIs), acompanhados de metadados descritivos que incluam título, domínio, versão, data de criação e referências bibliográficas às fontes primárias do MEXT. A ontologia será registrada em repositórios de ontologias reconhecidos, como o BioPortal ou o LOV (Linked Open Vocabularies).
 
-**Accessible:** A ontologia será disponibilizada em formato OWL 2, acessível via protocolo HTTP/HTTPS padrão, sem restrição de autenticação para leitura. A documentação em linguagem natural em <!-- português-->, com os termos japoneses originais em kanji/kana e romaji estará associada a cada elemento por meio de anotações.
+**Accessible:** A ontologia será disponibilizada em formato OWL 2, acessível via protocolo HTTP/HTTPS padrão, sem restrição de autenticação para leitura. A documentação em linguagem natural em  ~~português~~, com os termos japoneses originais em kanji/kana e romaji estará associada a cada elemento por meio de anotações.
 
 **Interoperable:** A modelagem conceitual será guiada pela UFO por meio da OntoUML, garantindo compatibilidade com outros artefatos desenvolvidos sob o mesmo fundamento ontológico. Na camada OWL, serão utilizadas propriedades de alinhamento (`owl:equivalentClass`, `skos:exactMatch`, `skos:closeMatch`) para articulação com vocabulários educacionais externos relevantes.
 
@@ -100,9 +100,9 @@ Os termos abaixo constituem o vocabulário central da ontologia. As definições
 
 **教育支援センター | Kyōiku Shien Sentā | Centro de Apoio Educacional** Estrutura de suporte externo à escola regular, mantida pelos municípios (市区町村), destinada a receber estudantes com _Futoko_ e garantir continuidade de aprendizagem fora do ambiente escolar convencional. A frequência nesses centros pode ser contabilizada como presença escolar para fins do registro administrativo. [MEXT]
 
-%%**学びの多様化学校 | Manabi no Tayōka Gakkō | Escola de Diversificação da Aprendizagem** Denominação adotada pelo COCOLOプラン para instituições autorizadas pelo MEXT a operar com currículos e estruturas de horário adaptados, destinadas a atender estudantes com _Futoko_. Substituiu a denominação anterior 不登校特例校, com vistas à redução do estigma associado ao termo. [MEXT] %%
+~~**学びの多様化学校 | Manabi no Tayōka Gakkō | Escola de Diversificação da Aprendizagem** Denominação adotada pelo COCOLOプラン para instituições autorizadas pelo MEXT a operar com currículos e estruturas de horário adaptados, destinadas a atender estudantes com _Futoko_. Substituiu a denominação anterior 不登校特例校, com vistas à redução do estigma associado ao termo. [MEXT]~~ 
 
-%%**不登校特例校 | Futoko Tokurei Kō | Escola de Exceção para Recusa Escolar** Denominação anterior às 学びの多様化学校, utilizada para escolas com autorização especial do MEXT para adequar currículo e carga horária a estudantes com _Futoko_. O termo foi reformulado pelo COCOLOプラン. [MEXT] %%
+~~**不登校特例校 | Futoko Tokurei Kō | Escola de Exceção para Recusa Escolar** Denominação anterior às 学びの多様化学校, utilizada para escolas com autorização especial do MEXT para adequar currículo e carga horária a estudantes com _Futoko_. O termo foi reformulado pelo COCOLOプラン. [MEXT]~~ 
 
 **欠席 | Kesseki | Ausência / Falta** Registro administrativo do não comparecimento do estudante a um dia letivo. A acumulação de _kesseki_ por 30 ou mais dias no ano letivo, sob os critérios específicos do MEXT, aciona o processo de classificação formal como _Futoko_. [MEXT]
 

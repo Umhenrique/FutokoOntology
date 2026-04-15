@@ -78,7 +78,7 @@ A ontologia é destinada a três perfis de usuários:
 
 **Accessible:** A ontologia será disponibilizada em formato OWL 2, acessível via protocolo HTTP/HTTPS padrão, sem restrição de autenticação para leitura. A documentação em linguagem natural em  ~~português~~, com os termos japoneses originais em kanji/kana e romaji estará associada a cada elemento por meio de anotações.
 
-**Interoperable:** A modelagem conceitual será guiada pela UFO por meio da OntoUML, garantindo compatibilidade com outros artefatos desenvolvidos sob o mesmo fundamento ontológico. Na camada OWL, serão utilizadas propriedades de alinhamento (`owl:equivalentClass`, `skos:exactMatch`, `skos:closeMatch`) para articulação com vocabulários educacionais externos relevantes.
+**Interoperable:** A modelagem conceitual será guiada pela UFO por meio da OntoUML, garantindo compatibilidade com outros artefatos desenvolvidos sob o mesmo fundamento ontológico. Na camada OWL, serão utilizadas propriedades de alinhamento para articulação com vocabulários educacionais externos relevantes.
 
 **Reusable:** Cada elemento da ontologia será acompanhado de definição explícita, contexto de uso e referência direta ao documento-fonte do MEXT. A ontologia será publicada sob licença aberta (Creative Commons CC BY 4.0), e sua estrutura modular permitirá que componentes específicos como o modelo de fluxo administrativo ou a taxonomia de motivos de ausência sejam reutilizados de forma independente.
 

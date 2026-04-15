@@ -26,7 +26,7 @@ A ontologia será desenvolvida em duas camadas distintas e complementares.
 
 Na camada conceitual será utilizada a linguagem OntoUML, que permite a modelagem guiada pela Unified Foundational Ontology (UFO). Essa camada priorizará a representação precisa dos tipos ontológicos envolvidos, como papéis, eventos, relações e qualidades. Será elaborada com a  ferramentas de modelagem Visual Paradigm compatível com OntoUML a partir de um plug-in público.
 
-Na camada de implementação formal, a ontologia será expressa em Web Ontology Language (OWL 2), viabilizando raciocínio automatizado, integração com outros artefatos semânticos e publicação em conformidade com os padrões da Web Semântica.
+Na camada de implementação formal, a ontologia será expressa em Web Ontology Language (OWL), viabilizando raciocínio automatizado, integração com outros artefatos semânticos e publicação em conformidade com os padrões da Web Semântica.
 
 As anotações de classes e propriedades serão redigidas em português, com inclusão dos termos japoneses originais em kanji/kana e romaji como metadados, de modo a preservar a fidelidade terminológica à fonte primária. ~~Talvez até a data da publicação seja traduzida para inglês~~ 
 

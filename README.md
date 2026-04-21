@@ -58,17 +58,17 @@ A ontologia é destinada a três perfis de usuários:
 
 ## 6. Requisitos Funcionais — Questões de Competência
 
-**CQ1:** Quais são os critérios formais estabelecidos pelo MEXT para classificar um estudante como _Futoko_?
+CQ1: Quais critérios formais são necessários para classificar um estudante como Futoko?
 
-**CQ2:** Quais categorias de motivo de ausência são reconhecidas pelo MEXT, e quais delas são explicitamente excluídas da classificação de _Futoko_?
+CQ2: Quais motivos de ausência excluem a classificação de Futoko?
 
-**CQ3:** Quem são os agentes administrativos responsáveis pelo registro da ausência em cada etapa do fluxo da escola ao levantamento nacional e quais instrumentos documentais formalizam cada transferência de informação?
+CQ3: Quais agentes administrativos registram as ausências escolares?
 
-~~**CQ4:** Quais instrumentos de suporte foram instituídos pelo COCOLOプラン para estudantes identificados como _Futoko_, e como sua aplicação é registrada administrativamente?~~ 
+CQ4: Quais instrumentos documentais formalizam a transferência de informação?
 
-~~CQ5:** De que modo a frequência em estruturas externas à escola regular como os Centros de Apoio Educacional (教育支援センター) e as escolas de diversificação da aprendizagem (学びの多様化学校) é contabilizada e registrada para fins administrativos?~~ 
+CQ5: Quais processos administrativos contabilizam a frequência em estruturas externas?
 
-**CQ6:** Como o processo administrativo de acompanhamento do estudante com _Futoko_ é documentado ao longo do tempo, e quais são os eventos que marcam transições de estado nesse processo?
+CQ6: Quais eventos marcam as transições de estado?
 
 ---
 

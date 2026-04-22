@@ -1,7 +1,9 @@
 # ENGLISH 
 
 ## Ontology Requirements Specification Document (ORSD)
-Domain: Administrative Process for School Refusal Registration (Futoko) Version: 1.1 Primary documentary base: 不登校対策（COCOLOプラン等）について — Ministry of Education, Culture, Sports, Science and Technology of Japan (MEXT), 2023.
+
+Domain: Administrative Process for School Refusal Registration (Futoko) 
+
 --- 
 ### 1. Scope
 
@@ -38,8 +40,11 @@ Ontology specialists and knowledge engineers who will use the artifact as a refe
 ### 5. Use Cases
 
 UC01 — Query of school refusal classification criteria. An education researcher needs to understand which formal criteria MEXT adopts to classify a student as having school refusal. The ontology must allow the structured retrieval of these criteria, including quantitative thresholds, categorical exclusions, and the typology of recognized absence reasons.
+
 UC02 — Tracing the administrative registration flow. A knowledge engineering specialist needs to map the path taken by absence information. The ontology must represent the agents, events, and documentary instruments involved at each stage of this flow.
+
 UC03 — Identification and modeling of COCOLOプラン support instruments. A public policy researcher needs to identify which administrative and support instruments were established by the COCOLOプラン for students with school refusal — such as the Individual Support Sheet (支援シート) and the Educational Support Centers (教育支援センター) — and how these instruments articulate with the process of student registration and follow-up.
+
 UC04 — Comparative Research on School Absence Models. A researcher interested in comparative education seeks to analyze how the Japanese administrative model of school refusal relates to or differs from other international systems for managing school dropout or refusal. The ontology should serve as a semantic reference that enables the identification of points of convergence and divergence between the MEXT system and educational frameworks from other countries, facilitating concept transposition and mapping for global studies.
 
 ---
@@ -47,10 +52,15 @@ UC04 — Comparative Research on School Absence Models. A researcher interested 
 ### 6. Functional Requirements — Competency Questions
 
 CQ1: What formal criteria are required to classify a student as having school refusal?
+
 CQ2: What absence reasons exclude the school refusal classification?
+
 CQ3: Which administrative agents register school absences?
+
 CQ4: Which documentary instruments formalize the transfer of information?
+
 CQ5: Which administrative processes account for attendance at external structures?
+
 CQ6: Which events mark state transitions?
 
 ---
@@ -68,7 +78,7 @@ Reusable: The ontology will be published under an open license, and its modular 
 
 ## Documento de Especificação de Requisitos da Ontologia (ORSD)
 
-Domínio: Processo Administrativo de Registro de Recusa Escolar (_Futoko_) **Versão:** 1.1 **Base documental primária:** 不登校対策（COCOLOプラン等）について — Ministério da Educação, Cultura, Esportes, Ciência e Tecnologia do Japão (MEXT), 2023.
+Domínio: Processo Administrativo de Registro de Recusa Escolar
 
 ---
 
@@ -85,18 +95,23 @@ O objetivo desta ontologia é produzir uma representação formal e explícita d
 Operacionalmente, a ontologia deve: (i) formalizar os conceitos, critérios e relações que constituem a classificação administrativa de recusa escolar; (ii) representar o fluxo de registro da ausência escolar, da unidade de ensino até a consolidação nos levantamentos nacionais; (iii) modelar os instrumentos de suporte previstos pelo COCOLOプラン e sua articulação com o processo administrativo de acompanhamento do estudante.
 
 ---
+
 ### 3. Linguagens
 
 A ontologia será desenvolvida em duas camadas distintas e complementares.
 Na camada conceitual será utilizada a linguagem OntoUML. Essa camada priorizará a representação precisa dos tipos ontológicos envolvidos, como papéis, eventos, relações e qualidades. Será elaborada com a  ferramentas de modelagem Visual Paradigm compatível com OntoUML a partir de um plug-in público.
 Na camada de implementação formal, a ontologia será expressa em Web Ontology Language (OWL), viabilizando raciocínio automatizado, integração com outros artefatos semânticos e publicação em conformidade com os padrões da Web Semântica.
+
 ---
 
 ### 4. Usuários
 
 A ontologia é destinada a três perfis de usuários:
+
 Pesquisadores acadêmicos das áreas de educação comparada, sociologia da educação e psiquiatria infantojuvenil, com interesse na caracterização formal do processo administrativo de registro da recusa escolar no Japão.
+
 Gestores e técnicos de políticas educacionais com interesse no modelo institucional japonês de classificação e acompanhamento do recusa escolar, para fins de estudo e referência.
+
 Especialistas em ontologias e engenharia do conhecimento que utilizarão o artefato como referência para desenvolvimento, alinhamento ou extensão de ontologias no domínio educacional.
 
 ---
@@ -104,8 +119,11 @@ Especialistas em ontologias e engenharia do conhecimento que utilizarão o artef
 ### 5. Casos de Uso
 
 CU01 — Consulta aos critérios de classificação de recusa escolar. Um pesquisador de educação necessita compreender quais critérios formais o MEXT adota para classificar um estudante com recusa escolar. A ontologia deve permitir a recuperação estruturada desses critérios, incluindo limiares quantitativos, exclusões categóricas e a tipologia dos motivos de ausência reconhecidos.
+
 CU02 — Rastreamento do fluxo administrativo de registro. Um especialista em engenharia do conhecimento precisa mapear o caminho percorrido pela informação de ausência. A ontologia deve representar os agentes, os eventos e os instrumentos documentais envolvidos em cada etapa desse fluxo.
+
 CU03 — Identificação e modelagem dos instrumentos de suporte do COCOLOプラン. Um pesquisador de políticas públicas necessita identificar quais instrumentos administrativos e de suporte foram instituídos pelo COCOLOプラン para estudantes com recusa escolar, como a Ficha de Suporte Individual (支援シート) e os Centros de Apoio Educacional (教育支援センター) e de que forma esses instrumentos se articulam com o processo de registro e acompanhamento do estudante.
+
 CU04 — Pesquisa Comparativa de Modelos de Ausência Escolar. Um pesquisador interessado em educação comparada busca analisar como o modelo administrativo japonês do recusa escolar se relaciona ou se diferencia de outros sistemas internacionais de gestão de abandono ou recusa escolar. A ontologia deve atuar como um referencial semântico que permita identificar pontos de convergência e divergência entre o sistema do MEXT e frameworks educacionais de outros países, facilitando a transposição e o mapeamento de conceitos para estudos globais.
 
 ---
@@ -113,10 +131,15 @@ CU04 — Pesquisa Comparativa de Modelos de Ausência Escolar. Um pesquisador in
 ### 6. Requisitos Funcionais — Questões de Competência
 
 CQ1: Quais critérios formais são necessários para classificar um estudante como recusa escolar?
+
 CQ2: Quais motivos de ausência excluem a classificação de recusa escolar?
+
 CQ3: Quais agentes administrativos registram as ausências escolares?
+
 CQ4: Quais instrumentos documentais formalizam a transferência de informação?
+
 CQ5: Quais processos administrativos contabilizam a frequência em estruturas externas?
+
 CQ6: Quais eventos marcam as transições de estado?
 
 ---
@@ -124,8 +147,11 @@ CQ6: Quais eventos marcam as transições de estado?
 ### 7. Requisitos Não-Funcionais — Princípios FAIR
 
 Findable: Todas as classes, propriedades e instâncias da ontologia receberão identificadores únicos e persistentes (URIs), acompanhados de metadados descritivos que incluam título, domínio, versão, data de criação. A ontologia será registrada em repositórios de ontologias reconhecidos, como o BioPortal ou o LOV.
+
 Accessible: A ontologia será disponibilizada em formato OWL 2, acessível via protocolo HTTP/HTTPS padrão, sem restrição de autenticação para leitura.
+
 Interoperable: A modelagem conceitual será por meio da OntoUML, garantindo compatibilidade com outros artefatos desenvolvidos sob o mesmo fundamento ontológico. Na camada OWL, serão utilizadas propriedades de alinhamento para articulação com vocabulários educacionais externos relevantes.
+
 Reusable: A ontologia será publicada sob licença aberta, e sua estrutura modular permitirá que componentes específicos sejam reutilizados de forma independente.
 
 ---

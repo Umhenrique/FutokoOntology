@@ -68,8 +68,11 @@ CQ6: Which events mark state transitions?
 ### 7. Non-Functional Requirements — FAIR Principles
 
 Findable: All classes, properties, and instances of the ontology will receive unique and persistent identifiers (URIs), accompanied by descriptive metadata including title, domain, version, and creation date. The ontology will be registered in recognized ontology repositories such as BioPortal or LOV.
+
 Accessible: The ontology will be made available in OWL 2 format, accessible via standard HTTP/HTTPS protocol, with no authentication required for reading.
+
 Interoperable: Conceptual modeling will be carried out using OntoUML, ensuring compatibility with other artifacts developed under the same ontological foundation. In the OWL layer, alignment properties will be used for articulation with relevant external educational vocabularies.
+
 Reusable: The ontology will be published under an open license, and its modular structure will allow specific components to be reused independently.
 
 ---

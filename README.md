@@ -1,7 +1,7 @@
 # ENGLISH 
 
 ## Ontology Requirements Specification Document (ORSD)
-
+<details>
 Domain: Administrative Process for School Refusal Registration (Futoko) 
 
 --- 
@@ -76,11 +76,11 @@ Interoperable: Conceptual modeling will be carried out using OntoUML, ensuring c
 Reusable: The ontology will be published under an open license, and its modular structure will allow specific components to be reused independently.
 
 ---
-
+</details>
 # PORTUGUES
 
 ## Documento de Especificação de Requisitos da Ontologia (ORSD)
-
+<details>
 Domínio: Processo Administrativo de Registro de Recusa Escolar
 
 ---
@@ -158,8 +158,9 @@ Interoperable: A modelagem conceitual será por meio da OntoUML, garantindo comp
 Reusable: A ontologia será publicada sob licença aberta, e sua estrutura modular permitirá que componentes específicos sejam reutilizados de forma independente.
 
 ---
-
+</details>
 ### Glossary
+<details>
 
 | Termo na Ontologia (Classe)                                  | Termo Original (Japonês)  | Leitura (Romaji)                                         | Descrição / Contexto no MEXT                                                                                     |
 | :----------------------------------------------------------- | :------------------------ | :------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
@@ -191,3 +192,4 @@ Reusable: A ontologia será publicada sob licença aberta, e sua estrutura modul
 | `AttendanceValidation` / Validação de Presença               | 出席扱い                      | *Shusseki Atsukai*                                       | Processo legal onde a ausência do aluno em instalações alternativas ou TIC é oficialmente contada como presença. |
 | `MedicalIllness` / Doença Médica (Exclusão)                  | 病気 / 身体的要因                | *Byoki / Shintaiteki Yoin*                               | Fatores médicos que excluem formalmente um aluno da definição administrativa de Futoko psicossocial.             |
 | `EconomicReason` / Razão Econômica (Exclusão)                | 経済的理由 / 経済的要因             | *Keizaiteki Riyu / Keizaiteki Yoin*                      | Dificuldades financeiras que também excluem o aluno da classificação de Futoko psicossocial.                     |
+</details>

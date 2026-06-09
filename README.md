@@ -1,6 +1,5 @@
-# ENGLISH 
-
 ## Ontology Requirements Specification Document (ORSD)
+
 <details>
 Domain: Administrative Process for School Refusal Registration (Futoko) 
 
@@ -77,7 +76,6 @@ Reusable: The ontology will be published under an open license, and its modular 
 
 ---
 </details>
-# PORTUGUES
 
 ## Documento de Especificação de Requisitos da Ontologia (ORSD)
 <details>
@@ -158,8 +156,11 @@ Interoperable: A modelagem conceitual será por meio da OntoUML, garantindo comp
 Reusable: A ontologia será publicada sob licença aberta, e sua estrutura modular permitirá que componentes específicos sejam reutilizados de forma independente.
 
 ---
+
 </details>
+
 ### Glossary
+
 <details>
 
 | Termo na Ontologia (Classe)                                  | Termo Original (Japonês)  | Leitura (Romaji)                                         | Descrição / Contexto no MEXT                                                                                     |

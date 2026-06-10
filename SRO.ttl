@@ -1,0 +1,923 @@
+@prefix : <http://example.com/school-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix gufo: <http://purl.org/nemo/gufo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.com/school-ontology#> .
+
+<http://example.com/school-ontology> rdf:type owl:Ontology ;
+                                      owl:imports <http://purl.org/nemo/gufo#/1.0.0> ;
+                                      <http://purl.org/dc/elements/1.1/creator> "Matheus Medeiros" ;
+                                      <http://purl.org/dc/elements/1.1/title> "Administrative Process for School Refusal Registration" ;
+                                      rdfs:comment "Ontologia do contexto escolar baseada em gUFO (Visão Geral + Avaliação de Recusa Escolar + Triagem e Intervenção)."@pt .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/school-ontology#comparativeAbsenceDuration
+:comparativeAbsenceDuration rdf:type owl:ObjectProperty ;
+                            rdfs:domain :SchoolRefusalClassification ;
+                            rdfs:range :AbsenceDuration ;
+                            rdfs:label "comparative"@en .
+
+
+###  http://example.com/school-ontology#comparativePsychosocial
+:comparativePsychosocial rdf:type owl:ObjectProperty ;
+                         rdfs:domain :SchoolRefusalClassification ;
+                         rdfs:range :PsychosocialFactor ;
+                         rdfs:label "comparative"@en .
+
+
+###  http://example.com/school-ontology#deliveryTo
+:deliveryTo rdf:type owl:ObjectProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain :StudentRecord ;
+            rdfs:range :MEXT ;
+            rdfs:label "Delivery To"@en .
+
+
+###  http://example.com/school-ontology#directorParticipatesInTrial
+:directorParticipatesInTrial rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf gufo:participatedIn ;
+                             rdfs:domain :Director ;
+                             rdfs:range :DirectorsTrial .
+
+
+###  http://example.com/school-ontology#facilityOccursInSession
+:facilityOccursInSession rdf:type owl:ObjectProperty ,
+                                  owl:IrreflexiveProperty ;
+                         rdfs:domain :AlternativeLearningSession ;
+                         rdfs:range :LearningFacility ;
+                         rdfs:label "Occurs IN"@en .
+
+
+###  http://example.com/school-ontology#hasAbsenceMotive
+:hasAbsenceMotive rdf:type owl:ObjectProperty ,
+                           owl:IrreflexiveProperty ;
+                  rdfs:domain :Student ;
+                  rdfs:range :ExcludedFactor .
+
+
+###  http://example.com/school-ontology#informedBy
+:informedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf gufo:mediates ;
+            rdfs:domain :DigitalCheckupSOS ;
+            rdfs:range :TeamSchool .
+
+
+###  http://example.com/school-ontology#isComponentOfSchool
+:isComponentOfSchool rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf gufo:isComponentOf ;
+                     rdf:type owl:TransitiveProperty ;
+                     rdfs:domain :TeamSchool ;
+                     rdfs:range :School .
+
+
+###  http://example.com/school-ontology#isMemberOfTeamSchool
+:isMemberOfTeamSchool rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf gufo:isCollectionMemberOf ;
+                      rdfs:domain [ rdf:type owl:Class ;
+                                    owl:unionOf ( :SchoolCounselor
+                                                  :SchoolSocialWorker
+                                                  :Teacher
+                                                )
+                                  ] ;
+                      rdfs:range :TeamSchool .
+
+
+###  http://example.com/school-ontology#monitoredBy
+:monitoredBy rdf:type owl:ObjectProperty ,
+                      owl:InverseFunctionalProperty ,
+                      owl:AsymmetricProperty ,
+                      owl:IrreflexiveProperty ;
+             rdfs:domain :Student ;
+             rdfs:range :TeamSchool ;
+             rdfs:label "Monitored by"@en .
+
+
+###  http://example.com/school-ontology#participatesInScreening
+:participatesInScreening rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:participatedIn ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Parent
+                                                     :SchoolCounselor
+                                                     :Student
+                                                     :Teacher
+                                                     :TeamSchool
+                                                   )
+                                     ] ;
+                         rdfs:range :Screening .
+
+
+###  http://example.com/school-ontology#performs
+:performs rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf gufo:mediates ;
+          rdfs:domain :DigitalCheckupSOS ;
+          rdfs:range :Student .
+
+
+###  http://example.com/school-ontology#planCreatedInIntervention
+:planCreatedInIntervention rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:wasCreatedIn ;
+                           rdfs:domain :StudyPlan ;
+                           rdfs:range :InterventionPlanning .
+
+
+###  http://example.com/school-ontology#planParticipatesInSession
+:planParticipatesInSession rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf gufo:participatedIn ;
+                           rdfs:domain :StudyPlan ;
+                           rdfs:range :AlternativeLearningSession .
+
+
+###  http://example.com/school-ontology#planParticipatesInTrial
+:planParticipatesInTrial rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:participatedIn ;
+                         rdfs:domain :StudyPlan ;
+                         rdfs:range :DirectorsTrial .
+
+
+###  http://example.com/school-ontology#recordCreatedInTrial
+:recordCreatedInTrial rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf gufo:wasCreatedIn ;
+                      rdfs:domain :StudentRecord ;
+                      rdfs:range :DirectorsTrial .
+
+
+###  http://example.com/school-ontology#reportCreatedInScreening
+:reportCreatedInScreening rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf gufo:wasCreatedIn ;
+                          rdfs:domain :ActivityReport ;
+                          rdfs:range :Screening .
+
+
+###  http://example.com/school-ontology#sheetCreatedInScreening
+:sheetCreatedInScreening rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:wasCreatedIn ;
+                         rdfs:domain :SupportSheet ;
+                         rdfs:range :Screening .
+
+
+###  http://example.com/school-ontology#sheetParticipatesInIntervention
+:sheetParticipatesInIntervention rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf gufo:participatedIn ;
+                                 rdfs:domain :SupportSheet ;
+                                 rdfs:range :InterventionPlanning .
+
+
+###  http://example.com/school-ontology#socialWorkerParticipatesInIntervention
+:socialWorkerParticipatesInIntervention rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf gufo:participatedIn ;
+                                        rdfs:domain :SchoolSocialWorker ;
+                                        rdfs:range :InterventionPlanning .
+
+
+###  http://example.com/school-ontology#studentParticipatesInRefusalClassification
+:studentParticipatesInRefusalClassification rdf:type owl:ObjectProperty ;
+                                            rdfs:subPropertyOf gufo:participatedIn ;
+                                            rdfs:domain :AbsentStudent ;
+                                            rdfs:range :SchoolRefusalClassification .
+
+
+###  http://example.com/school-ontology#studentStudiesAtSession
+:studentStudiesAtSession rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf gufo:participatedIn ;
+                         rdfs:domain :AbsentStudent ;
+                         rdfs:range :AlternativeLearningSession ;
+                         rdfs:label "Study at"@en .
+
+
+###  http://example.com/school-ontology#terminatesClassification
+:terminatesClassification rdf:type owl:ObjectProperty ;
+                          rdfs:domain :ExcludedFactor ;
+                          rdfs:range :SchoolRefusalClassification ;
+                          rdfs:label "termination"@en .
+
+
+###  http://example.com/school-ontology#triggers
+:triggers rdf:type owl:ObjectProperty ;
+          rdfs:domain :Screening ;
+          rdfs:range :DigitalCheckupSOS ;
+          rdfs:label "triggers"@en .
+
+
+###  http://purl.org/nemo/gufo#wasCreatedIn
+gufo:wasCreatedIn rdf:type owl:AsymmetricProperty ,
+                           owl:IrreflexiveProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/school-ontology#hasDaysAbsent
+:hasDaysAbsent rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Student ;
+               rdfs:range xsd:integer .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/school-ontology#AbsenceDuration
+:AbsenceDuration rdf:type owl:Class ;
+                 rdfs:subClassOf gufo:Quality ;
+                 owl:disjointWith :AbsenceMotive .
+
+
+###  http://example.com/school-ontology#AbsenceMotive
+:AbsenceMotive rdf:type owl:Class ;
+               rdfs:subClassOf gufo:Quality .
+
+
+###  http://example.com/school-ontology#AbsentStudent
+:AbsentStudent rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :Student
+                                                          [ rdf:type owl:Class ;
+                                                            owl:complementOf [ rdf:type owl:Restriction ;
+                                                                               owl:onProperty :hasAbsenceMotive ;
+                                                                               owl:someValuesFrom :ExcludedFactor
+                                                                             ]
+                                                          ]
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasDaysAbsent ;
+                                                            owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                 owl:onDatatype xsd:integer ;
+                                                                                 owl:withRestrictions ( [ xsd:minInclusive 30
+                                                                                                        ]
+                                                                                                      )
+                                                                               ]
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:subClassOf :Student .
+
+
+###  http://example.com/school-ontology#ActivityReport
+:ActivityReport rdf:type owl:Class ;
+                rdfs:subClassOf :Document .
+
+
+###  http://example.com/school-ontology#AlternativeLearningSession
+:AlternativeLearningSession rdf:type owl:Class ;
+                            rdfs:subClassOf gufo:Event .
+
+
+###  http://example.com/school-ontology#DigitalCheckupSOS
+:DigitalCheckupSOS rdf:type owl:Class ;
+                   rdfs:subClassOf gufo:Relator .
+
+
+###  http://example.com/school-ontology#Director
+:Director rdf:type owl:Class ;
+          rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#DirectorsTrial
+:DirectorsTrial rdf:type owl:Class ;
+                rdfs:subClassOf gufo:Event .
+
+
+###  http://example.com/school-ontology#Document
+:Document rdf:type owl:Class ;
+          rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#EconomicReason
+:EconomicReason rdf:type owl:Class ;
+                rdfs:subClassOf :ExcludedFactor .
+
+
+###  http://example.com/school-ontology#EducationSupportCenter
+:EducationSupportCenter rdf:type owl:Class ;
+                        rdfs:subClassOf :LearningFacility .
+
+
+###  http://example.com/school-ontology#ExcludedFactor
+:ExcludedFactor rdf:type owl:Class ;
+                rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#FreeSchool
+:FreeSchool rdf:type owl:Class ;
+            rdfs:subClassOf :LearningFacility .
+
+
+###  http://example.com/school-ontology#HomeICT
+:HomeICT rdf:type owl:Class ;
+         rdfs:subClassOf :LearningFacility .
+
+
+###  http://example.com/school-ontology#InSchoolSupportCenter
+:InSchoolSupportCenter rdf:type owl:Class ;
+                       rdfs:subClassOf :LearningFacility .
+
+
+###  http://example.com/school-ontology#InterventionPlanning
+:InterventionPlanning rdf:type owl:Class ;
+                      rdfs:subClassOf gufo:Event .
+
+
+###  http://example.com/school-ontology#LearningFacility
+:LearningFacility rdf:type owl:Class ;
+                  rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#MEXT
+:MEXT rdf:type owl:Class ;
+      rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#MedicalIllness
+:MedicalIllness rdf:type owl:Class ;
+                rdfs:subClassOf :ExcludedFactor .
+
+
+###  http://example.com/school-ontology#Parent
+:Parent rdf:type owl:Class ;
+        rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#PsychosocialFactor
+:PsychosocialFactor rdf:type owl:Class ;
+                    rdfs:subClassOf gufo:IntrinsicMode .
+
+
+###  http://example.com/school-ontology#RegularStudent
+:RegularStudent rdf:type owl:Class ;
+                rdfs:subClassOf :Student .
+
+
+###  http://example.com/school-ontology#School
+:School rdf:type owl:Class ;
+        rdfs:subClassOf gufo:Object .
+
+
+###  http://example.com/school-ontology#SchoolCounselor
+:SchoolCounselor rdf:type owl:Class ;
+                 rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#SchoolRefusalClassification
+:SchoolRefusalClassification rdf:type owl:Class ;
+                             rdfs:subClassOf gufo:Event .
+
+
+###  http://example.com/school-ontology#SchoolSocialWorker
+:SchoolSocialWorker rdf:type owl:Class ;
+                    rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#Screening
+:Screening rdf:type owl:Class ;
+           rdfs:subClassOf gufo:Event .
+
+
+###  http://example.com/school-ontology#Student
+:Student rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#StudentRecord
+:StudentRecord rdf:type owl:Class ;
+               rdfs:subClassOf :Document .
+
+
+###  http://example.com/school-ontology#StudyPlan
+:StudyPlan rdf:type owl:Class ;
+           rdfs:subClassOf :Document .
+
+
+###  http://example.com/school-ontology#SupportSheet
+:SupportSheet rdf:type owl:Class ;
+              rdfs:subClassOf :Document .
+
+
+###  http://example.com/school-ontology#Teacher
+:Teacher rdf:type owl:Class ;
+         rdfs:subClassOf :Person .
+
+
+###  http://example.com/school-ontology#TeamSchool
+:TeamSchool rdf:type owl:Class ;
+            rdfs:subClassOf gufo:Collection .
+
+
+###  http://example.com/school-ontology#UnjustifiedParentalBelief
+:UnjustifiedParentalBelief rdf:type owl:Class ;
+                           rdfs:subClassOf :ExcludedFactor .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.com/school-ontology#AR01
+:AR01 rdf:type owl:NamedIndividual ,
+               :ActivityReport .
+
+
+###  http://example.com/school-ontology#AbsenceDuration
+:AbsenceDuration rdf:type owl:NamedIndividual ,
+                          gufo:Quantity .
+
+
+###  http://example.com/school-ontology#AbsenceMotive
+:AbsenceMotive rdf:type owl:NamedIndividual ,
+                        gufo:Kind .
+
+
+###  http://example.com/school-ontology#AbsentStudent
+:AbsentStudent rdf:type owl:NamedIndividual ,
+                        gufo:Phase .
+
+
+###  http://example.com/school-ontology#ActivityReport
+:ActivityReport rdf:type owl:NamedIndividual ,
+                         gufo:SubKind .
+
+
+###  http://example.com/school-ontology#Aida_Kensuke
+:Aida_Kensuke rdf:type owl:NamedIndividual ,
+                       :Student ;
+              :hasAbsenceMotive :Fracture ,
+                                :Influenza ;
+              :hasDaysAbsent 35 .
+
+
+###  http://example.com/school-ontology#Akagi_Ritsuko
+:Akagi_Ritsuko rdf:type owl:NamedIndividual ,
+                        :SchoolCounselor ;
+               :participatesInScreening :Screening_Ikari .
+
+
+###  http://example.com/school-ontology#AlternativeLearningSession
+:AlternativeLearningSession rdf:type owl:NamedIndividual ,
+                                     gufo:EventType .
+
+
+###  http://example.com/school-ontology#Ayanami_Rei
+:Ayanami_Rei rdf:type owl:NamedIndividual ,
+                      :Student ;
+             :hasAbsenceMotive :Fracture ;
+             :hasDaysAbsent 5 .
+
+
+###  http://example.com/school-ontology#Central_Office_MEXT
+:Central_Office_MEXT rdf:type owl:NamedIndividual ,
+                              :MEXT .
+
+
+###  http://example.com/school-ontology#DigitalCheckupSOS
+:DigitalCheckupSOS rdf:type owl:NamedIndividual ,
+                            gufo:Kind .
+
+
+###  http://example.com/school-ontology#Director
+:Director rdf:type owl:NamedIndividual ,
+                   gufo:Role .
+
+
+###  http://example.com/school-ontology#DirectorsTrial
+:DirectorsTrial rdf:type owl:NamedIndividual ,
+                         gufo:EventType .
+
+
+###  http://example.com/school-ontology#Document
+:Document rdf:type owl:NamedIndividual ,
+                   gufo:Kind .
+
+
+###  http://example.com/school-ontology#EconomicReason
+:EconomicReason rdf:type owl:NamedIndividual ,
+                         gufo:Kind .
+
+
+###  http://example.com/school-ontology#EducationSupportCenter
+:EducationSupportCenter rdf:type owl:NamedIndividual ,
+                                 gufo:Kind .
+
+
+###  http://example.com/school-ontology#ExcludedFactor
+:ExcludedFactor rdf:type owl:NamedIndividual ,
+                         gufo:Category .
+
+
+###  http://example.com/school-ontology#Fracture
+:Fracture rdf:type owl:NamedIndividual ,
+                   :MedicalIllness .
+
+
+###  http://example.com/school-ontology#FreeSchool
+:FreeSchool rdf:type owl:NamedIndividual ,
+                     gufo:Kind .
+
+
+###  http://example.com/school-ontology#Fuyutsuki_Kouzou
+:Fuyutsuki_Kouzou rdf:type owl:NamedIndividual ,
+                           :SchoolSocialWorker ;
+                  :participatesInScreening :Screening_Ikari .
+
+
+###  http://example.com/school-ontology#Gainax
+:Gainax rdf:type owl:NamedIndividual ,
+                 :FreeSchool .
+
+
+###  http://example.com/school-ontology#HomeICT
+:HomeICT rdf:type owl:NamedIndividual ,
+                  gufo:Kind .
+
+
+###  http://example.com/school-ontology#Ikari_Gendo
+:Ikari_Gendo rdf:type owl:NamedIndividual ,
+                      :Director ,
+                      :Parent ;
+             :participatesInScreening :Screening_Ikari .
+
+
+###  http://example.com/school-ontology#Ikari_Shinji
+:Ikari_Shinji rdf:type owl:NamedIndividual ,
+                       :Student ,
+                       [ rdf:type owl:Class ;
+                         owl:complementOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasAbsenceMotive ;
+                                            owl:someValuesFrom :ExcludedFactor
+                                          ]
+                       ] ;
+              :hasDaysAbsent 35 .
+
+
+###  http://example.com/school-ontology#InSchoolSupportCenter
+:InSchoolSupportCenter rdf:type owl:NamedIndividual ,
+                                gufo:Kind .
+
+
+###  http://example.com/school-ontology#Influenza
+:Influenza rdf:type owl:NamedIndividual ,
+                    :MedicalIllness .
+
+
+###  http://example.com/school-ontology#InterventionPlanning
+:InterventionPlanning rdf:type owl:NamedIndividual ,
+                               gufo:EventType .
+
+
+###  http://example.com/school-ontology#Katsuragi_Misato
+:Katsuragi_Misato rdf:type owl:NamedIndividual ,
+                           :Teacher .
+
+
+###  http://example.com/school-ontology#Langley_Asuka
+:Langley_Asuka rdf:type owl:NamedIndividual ,
+                        :Student ,
+                        [ rdf:type owl:Class ;
+                          owl:complementOf [ rdf:type owl:Restriction ;
+                                             owl:onProperty :hasAbsenceMotive ;
+                                             owl:someValuesFrom :ExcludedFactor
+                                           ]
+                        ] ;
+               :hasDaysAbsent 15 .
+
+
+###  http://example.com/school-ontology#LearningFacility
+:LearningFacility rdf:type owl:NamedIndividual ,
+                           gufo:Category .
+
+
+###  http://example.com/school-ontology#MEXT
+:MEXT rdf:type owl:NamedIndividual ,
+               gufo:Kind .
+
+
+###  http://example.com/school-ontology#MedicalIllness
+:MedicalIllness rdf:type owl:NamedIndividual ,
+                         gufo:Kind .
+
+
+###  http://example.com/school-ontology#Nerv
+:Nerv rdf:type owl:NamedIndividual ,
+               :School .
+
+
+###  http://example.com/school-ontology#Parent
+:Parent rdf:type owl:NamedIndividual ,
+                 gufo:Role .
+
+
+###  http://example.com/school-ontology#Person
+:Person rdf:type owl:NamedIndividual ,
+                 gufo:Kind .
+
+
+###  http://example.com/school-ontology#PsychosocialFactor
+:PsychosocialFactor rdf:type owl:NamedIndividual ,
+                             gufo:IntrinsicMode .
+
+
+###  http://example.com/school-ontology#Record_Ikari
+:Record_Ikari rdf:type owl:NamedIndividual ,
+                       :StudentRecord .
+
+
+###  http://example.com/school-ontology#RegularStudent
+:RegularStudent rdf:type owl:NamedIndividual ,
+                         gufo:Phase .
+
+
+###  http://example.com/school-ontology#School
+:School rdf:type owl:NamedIndividual ,
+                 gufo:Kind .
+
+
+###  http://example.com/school-ontology#SchoolCounselor
+:SchoolCounselor rdf:type owl:NamedIndividual ,
+                          gufo:Role .
+
+
+###  http://example.com/school-ontology#SchoolRefusalClassification
+:SchoolRefusalClassification rdf:type owl:NamedIndividual ,
+                                      gufo:EventType .
+
+
+###  http://example.com/school-ontology#SchoolSocialWorker
+:SchoolSocialWorker rdf:type owl:NamedIndividual ,
+                             gufo:Role .
+
+
+###  http://example.com/school-ontology#Screening
+:Screening rdf:type owl:NamedIndividual ,
+                    gufo:EventType .
+
+
+###  http://example.com/school-ontology#Screening_Ikari
+:Screening_Ikari rdf:type owl:NamedIndividual ,
+                          :Screening .
+
+
+###  http://example.com/school-ontology#Student
+:Student rdf:type owl:NamedIndividual ,
+                  gufo:SubKind .
+
+
+###  http://example.com/school-ontology#StudentRecord
+:StudentRecord rdf:type owl:NamedIndividual ,
+                        gufo:SubKind .
+
+
+###  http://example.com/school-ontology#StudyPlan
+:StudyPlan rdf:type owl:NamedIndividual ,
+                    gufo:SubKind .
+
+
+###  http://example.com/school-ontology#SupportSheet
+:SupportSheet rdf:type owl:NamedIndividual ,
+                       gufo:SubKind .
+
+
+###  http://example.com/school-ontology#Teacher
+:Teacher rdf:type owl:NamedIndividual ,
+                  gufo:Role .
+
+
+###  http://example.com/school-ontology#TeamSchool
+:TeamSchool rdf:type owl:NamedIndividual ,
+                     gufo:Kind .
+
+
+###  http://example.com/school-ontology#UnjustifiedParentalBelief
+:UnjustifiedParentalBelief rdf:type owl:NamedIndividual ,
+                                    gufo:Kind .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:AbsenceDuration rdfs:label "Absence Duration"@en ,
+                            "Duração da Ausência"@pt-br ,
+                            "欠席期間"@ja .
+
+
+:AbsenceMotive rdfs:label "Absence Motive"@en ,
+                          "Motivo da Ausência"@pt-br ,
+                          "欠席理由"@ja .
+
+
+:AbsentStudent rdfs:label "Absent Student"@en ,
+                          "Estudante Ausente"@pt-br ,
+                          "不登校"@ja .
+
+
+:ActivityReport rdfs:label "Ativity Report"@en ,
+                           "Relatório de Atividades"@pt-br ,
+                           "活動報告書"@ja .
+
+
+:AlternativeLearningSession rdfs:label "Alternative Learning Session"@en ,
+                                       "Sessão de Aprendizagem Alternativa"@pt-br ,
+                                       "代替学習セッション"@ja .
+
+
+:DigitalCheckupSOS rdfs:label "Checkup Digital/SOS"@pt-br ,
+                              "Digital Checkup/SOS"@en ,
+                              "デジタルチェックアップ/SOS"@ja .
+
+
+:Director rdfs:label "Director"@en ,
+                     "Diretor"@pt-br ,
+                     "校長"@ja .
+
+
+:DirectorsTrial rdfs:label "Avaliação do Diretor"@pt-br ,
+                           "Director's Trial"@en ,
+                           "校長の判断"@ja .
+
+
+:Document rdfs:label "Document"@en ,
+                     "Documento"@pt-br ,
+                     "文書"@ja .
+
+
+:EconomicReason rdfs:label "Economic Reason"@en ,
+                           "Motivo Econômico"@pt-br ,
+                           "経済的理由"@ja .
+
+
+:EducationSupportCenter rdfs:label "Centro de Apoio à Educação"@pt-br ,
+                                   "Education Support Center"@en ,
+                                   "教育支援センター"@ja .
+
+
+:ExcludedFactor rdfs:label "Excluded Factor"@en ,
+                           "Fator Excluído"@pt-br ,
+                           "除外要因"@ja .
+
+
+:FreeSchool rdfs:label "Escola Livre"@pt-br ,
+                       "Free School"@en ,
+                       "フリースクール"@ja .
+
+
+:HomeICT rdfs:label "Casa (TIC)"@pt-br ,
+                    "Home (ICT)"@en ,
+                    "家庭（ICT）"@ja .
+
+
+:InSchoolSupportCenter rdfs:label "Centro de Apoio Interno à Escola"@pt-br ,
+                                  "In-School Support Center"@en ,
+                                  "校内サポートルーム"@ja .
+
+
+:InterventionPlanning rdfs:label "Intervantion Planning"@en ,
+                                 "Planejamento de Intervenção"@pt-br ,
+                                 "介入計画"@ja .
+
+
+:LearningFacility rdfs:label "Instalação de Aprendizagem"@pt-br ,
+                             "Learning Facility"@en ,
+                             "学習施設"@ja .
+
+
+:MEXT rdfs:label "MEXT"@en ,
+                 "MEXT"@pt-br ,
+                 "文部科学省"@ja .
+
+
+:MedicalIllness rdfs:label "Doença Médica"@pt-br ,
+                           "Medical Illness"@en ,
+                           "疾患"@ja .
+
+
+:Parent rdfs:label "Parent"@en ,
+                   "Responsável"@pt-br ,
+                   "保護者"@ja .
+
+
+:Person rdfs:label "Person"@en ,
+                   "Pessoa"@pt-br ,
+                   "人物"@ja .
+
+
+:PsychosocialFactor rdfs:label "Fator Psicossocial"@pt-br ,
+                               "Psychosocial Factor"@en ,
+                               "心理社会的要因"@ja .
+
+
+:RegularStudent rdfs:label "Estudante Regular"@pt-br ,
+                           "Regular Student"@en ,
+                           "一般生徒"@ja .
+
+
+:School rdfs:label "Escola"@pt-br ,
+                   "School"@en ,
+                   "学校"@ja .
+
+
+:SchoolCounselor rdfs:label "Conselheiro Escolar"@pt-br ,
+                            "School Counselor"@en ,
+                            "スクールカウンセラー"@ja .
+
+
+:SchoolRefusalClassification rdfs:label "Classificação de Recusa Escolar"@pt-br ,
+                                        "School Refusal Classification"@en ,
+                                        "不登校の分類"@ja .
+
+
+:SchoolSocialWorker rdfs:label "Assistente Social Escolar"@pt-br ,
+                               "School Social Worker"@en ,
+                               "スクールソーシャルワーカー"@ja .
+
+
+:Screening rdfs:label "Screening"@en ,
+                      "Triagem"@pt-br ,
+                      "スクリーニング"@ja .
+
+
+:Student rdfs:label "Estudante"@pt-br ,
+                    "Student"@en ,
+                    "児童生徒"@ja .
+
+
+:StudentRecord rdfs:label "Histórico Escolar"@pt-br ,
+                          "Student record"@en ,
+                          "指導要録"@ja .
+
+
+:StudyPlan rdfs:label "Plano de Estudos"@pt-br ,
+                      "Study Plan"@en ,
+                      "学習計画"@ja .
+
+
+:SupportSheet rdfs:label "Ficha de Apoio"@pt-br ,
+                         "Support Sheet"@en ,
+                         "支援シート"@ja .
+
+
+:Teacher rdfs:label "Professor"@pt-br ,
+                    "Teacher"@en ,
+                    "教員"@ja .
+
+
+:TeamSchool rdfs:label "Equipe Escolar"@pt-br ,
+                       "Team School"@en ,
+                       "チーム学校"@ja .
+
+
+:UnjustifiedParentalBelief rdfs:label "Crença Injustificada dos Pais"@pt-br ,
+                                      "Unjustified Parental Belief"@en ,
+                                      "保護者の不当な考え"@ja .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ActivityReport
+                :StudentRecord
+                :StudyPlan
+                :SupportSheet
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :AlternativeLearningSession
+                :DirectorsTrial
+                :InterventionPlanning
+                :SchoolRefusalClassification
+                :Screening
+                gufo:Participation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EconomicReason
+                :MedicalIllness
+                :UnjustifiedParentalBelief
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EducationSupportCenter
+                :FreeSchool
+                :HomeICT
+                :InSchoolSupportCenter
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

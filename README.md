@@ -194,3 +194,18 @@ Reusable: A ontologia será publicada sob licença aberta, e sua estrutura modul
 | `MedicalIllness` / Doença Médica (Exclusão)                  | 病気 / 身体的要因                | *Byoki / Shintaiteki Yoin*                               | Fatores médicos que excluem formalmente um aluno da definição administrativa de Futoko psicossocial.             |
 | `EconomicReason` / Razão Econômica (Exclusão)                | 経済的理由 / 経済的要因             | *Keizaiteki Riyu / Keizaiteki Yoin*                      | Dificuldades financeiras que também excluem o aluno da classificação de Futoko psicossocial.                     |
 </details>
+
+### OWL
+
+<details>
+  
+* **Novos Axiomas OWL:**
+  * **Condições Necessárias e Suficientes:** `AbsentStudent` configurada como classe definida via `Equivalent To`.
+  * **Disjunções:** `AllDisjointClasses` em agentes.
+  * **Axiomas de Fechamento:** Propriedades funcionais criadas para contornar a OWA (Open World Assumption).
+* **Consistência Lógica:** Ontologia 100% consistente validada nos reasoners HermiT.
+* **Inferências Demonstradas:**
+  1. **Reorganização de classes:** Subsunção automática individual de `Student` para `AbsentStudent` baseado nas regras.
+  2. **Classificação de instâncias:** Validação de casos de teste positivos (Hiroshi classificado por >= 30 dias) e negativos (Kenji não classificado devido à exclusão médica).
+
+</details>
